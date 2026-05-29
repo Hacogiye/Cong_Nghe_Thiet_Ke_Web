@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Table border-collapse</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        /* === Table xấu (mặc định) === */
+        .ugly {
+            border: 1px solid #888;
+        }
+
+        .ugly td,
+        .ugly th {
+            border: 1px solid #888;
+            padding: 8px 12px;
+        }
+
+        /* === Table đẹp (collapse) === */
+        .nice {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .nice caption {
+            caption-side: top;
+            font-weight: 700;
+            padding: 8px;
+            color: #0e7490;
+            text-align: left;
+        }
+
+        .nice th {
+            background: #0e7490;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #134e4a;
+        }
+
+        .nice td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .nice tbody tr:hover {
+            background: #f0f9ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Mặc định (border-collapse: separate)</h3>
+    <table class="ugly">
+        <tr>
+            <th>Tên</th>
+            <th>Lớp</th>
+        </tr>
+        <tr>
+            <td>An</td>
+            <td>62CN1</td>
+        </tr>
+    </table>
+
+    <h3>Collapse + caption + hover</h3>
+    <table class="nice">
+        <caption>Bảng 7.1 - Sinh viên khoa CNTT HUCE</caption>
+        <thead>
+            <tr>
+                <th>MSSV</th>
+                <th>Họ tên</th>
+                <th>Lớp</th>
+                <th>GPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2021A1234</td>
+                <td>Nguyễn Văn An</td>
+                <td>62CN1</td>
+                <td>3.65</td>
+            </tr>
+            <tr>
+                <td>2021A5678</td>
+                <td>Trần Thị Bình</td>
+                <td>62CN1</td>
+                <td>3.82</td>
+            </tr>
+            <tr>
+                <td>2021A9012</td>
+                <td>Lê Văn Cường</td>
+                <td>62CN2</td>
+                <td>3.45</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

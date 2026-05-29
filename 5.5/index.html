@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Descendant (dấu cách): mọi p trong article (con, cháu...) */
+article p {
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Child > : chỉ li CON TRỰC TIẾP của ul.menu */
+ul.menu > li {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* Adjacent + : p NGAY SAU h2 */
+h2 + p {
+  font-size: 18px;
+  font-weight: bold;
+  color: teal;
+}
+
+/* General sibling ~ : MỌI p sau h2 trong cùng cha */
+h2 ~ p {
+  margin-left: 20px;
+}
+
+/* Kết hợp: nav a (mọi a trong nav) */
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+nav { background: navy; padding: 12px; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+</nav>
+
+<article>
+  <h2>Tiêu đề bài viết</h2>
+  <p>Đoạn ngay sau h2 (đậm, teal).</p>
+  <p>Đoạn 2 (bình thường nhưng có margin-left).</p>
+  <div>
+    <p>Đoạn lồng trong div - vẫn là descendant của article.</p>
+  </div>
+</article>
+
+<ul class="menu">
+  <li>Menu 1</li>
+  <li>Menu 2
+    <ul>
+      <li>Submenu (KHÔNG có border-bottom vì là cháu, không phải con trực tiếp)</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>
