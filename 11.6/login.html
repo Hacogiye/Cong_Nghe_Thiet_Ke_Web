@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="username">
+            <label for="username">Ten dang nhap</label>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <div class="password">
+            <label for="password">Mat khau</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div class="button">
+            <div>
+                <button type="button" onclick="Login()">Dang nhap</button>
+            </div>
+
+            <div>
+                <button type="button" onclick="get_data()">Lay du lieu mau</button>
+            </div>
+
+            <div>
+                <button type="button" onclick="rs_data()" class="btn-reset">Reset data</button>
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+
+        function Login() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            if (username == "admin" && password == "123456") {
+                alert("Login success")
+                window.location.href = "https://uggiare.vn/"
+            } else {
+                alert("Login failed")
+            }
+        }
+
+        function get_data() {
+            document.getElementById('username').value = "Tudz";
+            document.getElementById('password').value = "Tubietdi";
+        }
+
+        function rs_data() {
+            document.getElementById('username').value = "";
+            document.getElementById('password').value = "";
+        }
+    </script>
+</body>
+
+</html>

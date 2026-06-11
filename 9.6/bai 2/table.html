@@ -5,17 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Toàn bộ bảng */
+        .custom-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            /* Để bo tròn góc không bị lẹm */
+        }
+
+        /* Tiêu đề bảng (Header) */
+        .custom-table th {
+            background-color: #009879;
+            /* Màu nền xanh hiện đại */
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+            padding: 12px 15px;
+        }
+
+        /* Các ô dữ liệu (Cells) */
+        .custom-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        /* Đổi màu xen kẽ các hàng (Zebra Striping) */
+        .custom-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        /* Hàng cuối cùng (Đường viền đậm hơn ở đáy) */
+        .custom-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        /* Hiệu ứng khi di chuột qua hàng (Hover effect) */
+        .custom-table tbody tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+            color: #009879;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+    </style>
 </head>
 
 <body>
-    <table>
+    <table class="custom-table">
         <thead>
             <tr>
+                <th>STT</th>
                 <th>Ten</th>
                 <th>Tuoi</th>
                 <th>id</th>
                 <th>email</th>
                 <th>diem</th>
+                <th>Thao tac</th>
             </tr>
         </thead>
         <tbody id="sinhvien-table">
@@ -23,31 +74,43 @@
         </tbody>
     </table>
     <script>
-        const sinhviens = [
-    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
-    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
-    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
-    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 }
-];
+        let sinhviens = [
+            { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
+            { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
+            { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
+            { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
+            { name: "Tes", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 }
+        ];
 
-let str = "";
-for (let i = 0; i < sinhviens.length; i++) { // Dùng sinhviens.length thay vì viết cứng số 4
-    str += "<tr>";
-    // 1. Phải bọc (i + 1) trong ngoặc để nó cộng số trước, ra 1, 2, 3, 4
-    str += "<td>" + (i + 1) + "</td>"; 
-    
-    // 2. Phải có [i] thì mới lấy được thông tin của từng sinh viên
-    str += "<td>" + sinhviens[i].name + "</td>";
-    str += "<td>" + sinhviens[i].age + "</td>";
-    str += "<td>" + sinhviens[i].id + "</td>";
-    str += "<td>" + sinhviens[i].email + "</td>";
-    str += "<td>" + sinhviens[i].diem + "</td>";
-    str += "<td>" + "<button>Delete</button>" + "</td>"
-    str += "</tr>";
-}
-document.getElementById("sinhvien-table").innerHTML = str;
+        function display() {
+            let str = "";
+            for (let i = 0; i < sinhviens.length; i++) { // Dùng sinhviens.length thay vì viết cứng số 4
+                str += "<tr>";
+                // 1. Phải bọc (i + 1) trong ngoặc để nó cộng số trước, ra 1, 2, 3, 4
+                str += "<td>" + (i + 1) + "</td>";
 
-    
+                // 2. Phải có [i] thì mới lấy được thông tin của từng sinh viên
+                str += "<td>" + sinhviens[i].name + "</td>";
+                str += "<td>" + sinhviens[i].age + "</td>";
+                str += "<td>" + sinhviens[i].id + "</td>";
+                str += "<td>" + sinhviens[i].email + "</td>";
+                str += "<td>" + sinhviens[i].diem + "</td>";
+                str += "<td><button onclick = 'btn_del(" + i + ")'>Delete</button></td>";
+                str += "</tr>";
+            }
+            document.getElementById("sinhvien-table").innerHTML = str;
+        }
+
+
+
+
+        function btn_del(x) {
+            sinhviens.splice(x, 1);
+            display();
+        }
+        display();
+
+
     </script>
 </body>
 
