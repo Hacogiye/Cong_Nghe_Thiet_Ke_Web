@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Ten</th>
+                <th>Tuoi</th>
+                <th>id</th>
+                <th>email</th>
+                <th>diem</th>
+            </tr>
+        </thead>
+        <tbody id="sinhvien-table">
+
+        </tbody>
+    </table>
+    <script>
+        const sinhviens = [
+    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
+    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
+    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 },
+    { name: "Tu", age: 20, id: "SV001", email: "tuyangho@sfsf.com", diem: 8.5 }
+];
+
+let str = "";
+for (let i = 0; i < sinhviens.length; i++) { // Dùng sinhviens.length thay vì viết cứng số 4
+    str += "<tr>";
+    // 1. Phải bọc (i + 1) trong ngoặc để nó cộng số trước, ra 1, 2, 3, 4
+    str += "<td>" + (i + 1) + "</td>"; 
+    
+    // 2. Phải có [i] thì mới lấy được thông tin của từng sinh viên
+    str += "<td>" + sinhviens[i].name + "</td>";
+    str += "<td>" + sinhviens[i].age + "</td>";
+    str += "<td>" + sinhviens[i].id + "</td>";
+    str += "<td>" + sinhviens[i].email + "</td>";
+    str += "<td>" + sinhviens[i].diem + "</td>";
+    str += "<td>" + "<button>Delete</button>" + "</td>"
+    str += "</tr>";
+}
+document.getElementById("sinhvien-table").innerHTML = str;
+
+    
+    </script>
+</body>
+
+</html>

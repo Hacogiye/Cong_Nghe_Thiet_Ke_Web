@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .sample {
+            display: flex;
+            gap: 20px;
+        }
+
+        .white {
+            height: 80px;
+            width: 80px;
+            background-color: white;
+
+        }
+
+        .black {
+            height: 80px;
+            width: 80px;
+            background-color: rgba(255, 166, 0, 0.541);
+        }
+
+        .banco {
+            margin-top: 30px;
+            display: inline-grid;
+            grid-template-columns: repeat(8, 80px);
+            grid-template-rows: repeat(8, 80px);
+            border: 1px solid red;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sample">
+        <h1>Sample</h1>
+        <div class="white"></div>
+        <div class="black"></div>
+    </div>
+
+    <div class="banco" id="banco">
+
+    </div>
+
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
